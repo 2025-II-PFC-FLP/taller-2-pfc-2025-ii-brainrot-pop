@@ -33,6 +33,6 @@ class ConjuntosDifusos {
   }
 
   def igualdad(cd1: ConjDifuso, cd2: ConjDifuso): Boolean = {
-    inclusion(cd1, cd2) && inclusion(cd2, cd1)
-  }
+    inclusion(cd1, cd2) && inclusion(cd2, cd1)
+  }
 }
