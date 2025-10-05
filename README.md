@@ -18,3 +18,4 @@
 
 ## 📌 Descripción de la Asignación
 
+El taller trata sobre la implementación funcional de conjuntos difusos en Scala, aplicando recursión, funciones de alto orden y operaciones como unión, intersección, complemento e inclusión.
