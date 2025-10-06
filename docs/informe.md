@@ -32,9 +32,9 @@ Es simplemente un alias semántico que mejora la legibilidad del código y del i
 
 Esta función construye un conjunto difuso que modela la idea "números grandes" mediante la fórmula:
 
-[
+\[
 \mu(n) = \left(\frac{n}{n + d}\right)^{e}
-]
+\]
 
 donde $d \ge 1$ controla la suavidad del umbral y $e \ge 1$ enfatiza la cercanía a 1. En el código se implementa como:
 
@@ -77,9 +77,9 @@ def union(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso =
 
 Análogo a la unión, la intersección usa el mínimo punto a punto:
 
-[
+\[
 \mu_{S_1 \cap S_2}(x) = \min\big(\mu_{S_1}(x), \mu_{S_2}(x)\big)
-]
+\]
 
 Código:
 
@@ -92,9 +92,9 @@ def interseccion(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso =
 
 Matemáticamente: $S_1 \subseteq S_2$ si y solo si para todo $x$:
 
-[
+\[
 \mu_{S_1}(x) \le \mu_{S_2}(x)
-]
+\]
 
 Como no podemos iterar sobre los enteros infinitos, el enunciado fija el universo de búsqueda en $[0,1000]$. La implementación recorre este intervalo con recursión (estilo del profe):
 
@@ -113,7 +113,7 @@ def inclusion(cd1: ConjDifuso, cd2: ConjDifuso): Boolean = {
 
 ```mermaid
 graph TD
-  subgraph Pila_de_llamados
+  subgraph "Pila de llamados"
     F0[aux(0): esperando]
     F1[aux(1): esperando]
     F2[aux(2): esperando]
@@ -130,9 +130,9 @@ En la ejecución real la llamada `aux(0)` empuja `aux(1)`, que empuja `aux(2)`, 
 
 Se define por doble inclusión:
 
-[
+\[
 S_1 = S_2 \iff S_1 \subseteq S_2 \land S_2 \subseteq S_1
-]
+\]
 
 Implementación:
 
@@ -146,5 +146,4 @@ def igualdad(cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
 
 * `pertenece`, `grande`, `complemento`, `union`, `interseccion`: tiempo $O(1)$ por evaluación en un entero dado (solo operaciones aritméticas y calls a `math`).
 * `inclusion`: en el peor caso revisa 1001 valores (0..1000), por tanto $O(1000) = O(1)$ si lo vemos como constante límite, pero más útil decir $O(N)$ con $N=1001$ en término práctico.
-
 
