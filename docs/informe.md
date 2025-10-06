@@ -109,10 +109,10 @@ def inclusion(cd1: ConjDifuso, cd2: ConjDifuso): Boolean = {
 ```mermaid
 graph TD
   subgraph "Pila de llamados"
-    F0[aux(0): esperando]
-    F1[aux(1): esperando]
-    F2[aux(2): esperando]
-    F3[aux(3): detecta cd1(3) > cd2(3) => false]
+    F0["aux(0): esperando"]
+    F1["aux(1): esperando"]
+    F2["aux(2): esperando"]
+    F3["aux(3): detecta cd1(3) > cd2(3) => false"]
   end
   F0 --> F1
   F1 --> F2
