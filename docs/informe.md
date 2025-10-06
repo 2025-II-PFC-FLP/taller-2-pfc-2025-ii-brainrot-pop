@@ -32,9 +32,7 @@ Es simplemente un alias semántico que mejora la legibilidad del código y del i
 
 Esta función construye un conjunto difuso que modela la idea "números grandes" mediante la fórmula:
 
-\[
-\mu(n) = \left(\frac{n}{n + d}\right)^{e}
-\]
+$\mu(n) = \left(\frac{n}{n + d}\right)^{e}$
 
 donde $d \ge 1$ controla la suavidad del umbral y $e \ge 1$ enfatiza la cercanía a 1. En el código se implementa como:
 
@@ -62,9 +60,9 @@ Esto garantiza que si un elemento pertenece totalmente a `S` ($\mu_S(x)=1$), en 
 
 La unión en teoría de conjuntos difusos clásica se define con el máximo punto a punto:
 
-[
-\mu_{S_1 \cup S_2}(x) = \max\big(\mu_{S_1}(x), \mu_{S_2}(x)\big)
-]
+
+$\mu_{S_1 \cup S_2}(x) = \max\big(\mu_{S_1}(x), \mu_{S_2}(x)\big)$
+
 
 Implementación:
 
@@ -77,9 +75,7 @@ def union(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso =
 
 Análogo a la unión, la intersección usa el mínimo punto a punto:
 
-\[
-\mu_{S_1 \cap S_2}(x) = \min\big(\mu_{S_1}(x), \mu_{S_2}(x)\big)
-\]
+$\mu_{S_1 \cap S_2}(x) = \min\big(\mu_{S_1}(x), \mu_{S_2}(x)\big)$
 
 Código:
 
@@ -92,9 +88,8 @@ def interseccion(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso =
 
 Matemáticamente: $S_1 \subseteq S_2$ si y solo si para todo $x$:
 
-\[
-\mu_{S_1}(x) \le \mu_{S_2}(x)
-\]
+
+$\mu_{S_1}(x) \le \mu_{S_2}(x)$
 
 Como no podemos iterar sobre los enteros infinitos, el enunciado fija el universo de búsqueda en $[0,1000]$. La implementación recorre este intervalo con recursión (estilo del profe):
 
@@ -130,9 +125,9 @@ En la ejecución real la llamada `aux(0)` empuja `aux(1)`, que empuja `aux(2)`, 
 
 Se define por doble inclusión:
 
-\[
-S_1 = S_2 \iff S_1 \subseteq S_2 \land S_2 \subseteq S_1
-\]
+
+$S_1 = S_2 \iff S_1 \subseteq S_2 \land S_2 \subseteq S_1$
+
 
 Implementación:
 
